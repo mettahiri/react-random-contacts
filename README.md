@@ -3,7 +3,7 @@ Test pour Kaspr.io <br>
 Technologies : <br>
     - React <br>
     - React Router <br>
-    - React google map
+    - React google map <br>
     - Redux <br>
     - Html5 ( sémantique ) <br>
     - Css3 ( Pure ) <br>
