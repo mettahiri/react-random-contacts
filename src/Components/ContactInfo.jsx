@@ -33,7 +33,7 @@ class ContactInfo extends Component {
                     <header>
                         <h1>Infos</h1>
                         <center>
-                            <img className="userImg" src={user[0].picture.large} alt={user[0].name.first+" "+user[0].name.last} />
+                            <img className="userImg" src={user[0].picture.large} alt={user[0].name.first+" "+user[0].name.last} alt={user[0].name.last} />
                             <h1>{user[0].name.first+" "+user[0].name.last.toUpperCase()}</h1>
                         </center>
                     </header>
