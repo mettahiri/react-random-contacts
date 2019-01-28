@@ -1,5 +1,5 @@
 const get_users = (dispatch) => {
-    // debut de la requête
+    // début de la requête
     dispatch({
         type : "GET_USERS_START"
     })

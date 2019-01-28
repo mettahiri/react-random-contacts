@@ -1,4 +1,8 @@
+                /**
+                 * Seulement un seul <reducer> dans l'index donc pas besoin de "combineRedcuers"
+                 */
 
+// state par default
 let initstate = {
     fetching : false,
     fetched : false ,
@@ -13,7 +17,7 @@ let initstate = {
  * @param {*} state ==> initState par default
  * @param {*} action ==> les processus de la requête
  */
-let users_reducer = (state= initstate,action) => {
+let users_reducer = (state = initstate , action) => {
     switch(action.type){
         // Debut de la requête
         case "GET_USERS_START" :
@@ -22,7 +26,7 @@ let users_reducer = (state= initstate,action) => {
             fetching : true
         }
         break;
-        // Requête Réussi
+        // Requête Réussie
         case "GET_USERS" :
         state = {
             ...state,

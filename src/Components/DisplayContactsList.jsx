@@ -1,11 +1,12 @@
 import React from 'react';
-import {NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom";
 /**
  * DisplayContacts :
  *          -Affichge de la liste de contact
  * @param {*} props 
  */
-const DisplayContacts = (props) => {
+const DisplayContactsList = (props) => {
+
     const gender = props.gender === "male" ? "fa-mars" : "fa-venus";
     return (
         <article className="contact">
@@ -21,12 +22,15 @@ const DisplayContacts = (props) => {
                 </h4>
              </div>
             <i className={`fas ${gender}`}></i> 
-             <NavLink to={`/contactInfo/${props.id}`} >
-                <button ><span>Infos... </span><i className="fas fa-arrow-circle-right fa-2x"></i></button>
+             <NavLink to={`/contactInfos/${props.id}`} >
+                <button >
+                    <span>Infos... </span>
+                    <i className="fas fa-arrow-circle-right fa-2x"></i>
+                </button>
             </NavLink>
         </article>
     )
 
 }
 
-export default DisplayContacts;
+export default DisplayContactsList;

@@ -63,6 +63,7 @@ center {
   margin-left : 15px;
 }
 
+
 .contact:hover .info {
   transform: translateX(4px);
 }
@@ -71,6 +72,10 @@ center {
   margin:5px;
   color: #333;
   font-weight: 400;
+}
+.contact  .info h4 {
+  color: #777;
+
 }
 
 .info > h2:first-letter {
@@ -112,7 +117,18 @@ center {
   transform: translateX(-10px);
   background: rgb(46, 16, 123);
 }
+.retourList button {
+  position:fixed;
+  bottom : 40px;
+  right : 40px;
+  padding :15px;
+  border-radius : 50%;
+  color : #fff;
+  background: rgb(46, 1, 90);
+  border :none;
+  cursor: pointer;
 
+}
 
 
 
@@ -233,10 +249,14 @@ center {
   padding-left : 10px;
 }
 
-header>center>h1::first-letter {
+header>center>h1:first-letter {
   text-transform: capitalize;
 }
-
+.error {
+  margin-top : 100px;
+  color :tomato;
+  text-align: center;
+}
 
 
 
@@ -285,6 +305,11 @@ header>center>h1::first-letter {
   }
   .userMain .location {
     border-left :none;
+  }
+  .retourList button {
+    bottom : 5px;
+    right : 5px;
+  
   }
 }
 

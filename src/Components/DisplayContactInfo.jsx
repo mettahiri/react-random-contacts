@@ -5,7 +5,7 @@ import React from 'react';
  *          - Affichage des données
  * 
  * props :
- * @param {icon} htmlTag ==> icone 
+ * @param {icon} htmlTag ==> icône 
  * @param {title} String ==> Titre de l'information 
  * @param {info} String ==>  L'information 
  */

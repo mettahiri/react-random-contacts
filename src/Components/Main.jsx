@@ -5,6 +5,33 @@ import {Switch,Route,Redirect,withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import '../App.css';
 
+
+
+/**
+ * Main Component :
+ *          - reçoit les données via redux
+ *          - les transfert aux différents components  
+ */
+
+class Main extends Component {
+    render() { 
+        const CONTACT_PROPS = { 
+            "users"   : this.props.users ,
+            "fetched" : this.props.fetched ,
+            "error"   : this.props.error
+        }
+        return ( 
+            <Switch>
+                <Route  path="/home" render={()=> <ContactList {...CONTACT_PROPS} />} />
+                <Route  path="/contactInfos/:userId"  render={(props) => <ContactWithId {...props} {...CONTACT_PROPS} />} />
+                <Redirect to="/home" /> 
+            </Switch>
+         );
+    }
+}
+
+
+
 /**
  * ContactWithId : 
  *      - Récupére les infos d'un contact
@@ -17,13 +44,13 @@ import '../App.css';
  */
 
 const ContactWithId = ({fetched,users,match}) => {
-
-    let filter_user, user_session, contact ;
+    const id = parseInt(match.params.userId) ;
+    let   filter_user, user_session, contact ;
     
-    if(fetched){
+    if(fetched && id >=0 && id < users.length ){
 
         // Filtrer un contact par son id (index)
-        filter_user = users.filter( (user,i) => i === parseInt(match.params.userId) && user);
+        filter_user = users.filter( (user,i) => i === id && user);
 
         // préparer le contact en format json pour le stocker en session (sessionStorage)
         user_session = JSON.stringify(filter_user);
@@ -38,33 +65,18 @@ const ContactWithId = ({fetched,users,match}) => {
 
     return(
         <ContactInfo user = { contact } />
-    )
+    );
 }
 
+
 /**
- * Main Component :
- *          - reçoit les données via redux
- *          - les transfert aux différents components  
+ * @param {*} state ==> Redux store
  */
-class Main extends Component {
-    render() { 
-        const CONTACT_PROPS = { 
-            "users" : this.props.users ,
-            "fetched" : this.props.fetched ,
-        }
-        return ( 
-            <Switch>
-                <Route  path="/home" render={()=> <ContactList {...CONTACT_PROPS} />} />
-                <Route  path="/contactInfo/:userId"  render={(props) => <ContactWithId {...props} {...CONTACT_PROPS} />} />
-                <Redirect to="/home" /> 
-            </Switch>
-         );
-    }
-}
 const mapStateToProps = (state) => {
     return { 
         users : state.users.results,
-        fetched :state.fetched
+        fetched :state.fetched,
+        error : state.error
     };
 }
 export default withRouter(connect(mapStateToProps)(Main));

@@ -1,5 +1,14 @@
 Test pour Kaspr.io
 
+Technologies : 
+    - React
+    - React Router
+    - Redux
+    - Html5 ( sémantique )
+    - Css3 ( Pure )
+    - Fontawesome 
+    - Google font
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
