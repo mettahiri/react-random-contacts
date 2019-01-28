@@ -1,5 +1,5 @@
                 /**
-                 * Seulement un seul <reducer> dans l'index donc pas besoin de "combineRedcuers"
+                 * Seulement un seul <reducer> donc pas besoin de "combineRedcuers" ni de Séparation
                  */
 
 // state par default
